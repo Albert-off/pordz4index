@@ -12,6 +12,7 @@
 
 body{
     font-family: 'SF Pro Display', sans-serif;
+    /* background-color: #F5F5F7; */
     /* margin: 0 0 var(--header-height) 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
@@ -50,7 +51,7 @@ header{
     top: 0;
     right: 0;
     left: 0;
-    z-index: 1400;
+    z-index: 9999;
     height: 44px;
     margin: 0;
     width: 100%;
@@ -59,21 +60,19 @@ header{
     -webkit-backdrop-filter: blur(32px); /2rem/ */
     /* -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px); */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     /* position: absolute;
     z-index: 9999;
     display: block;
-    margin: 0;
-    width: 100%;
     min-width: 1024px;
     height: 48px;
     max-height: 44px;
     background: rgba(0, 0, 0, 0.92);
-    font-size: 17px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; */
+    font-size: 17px; */
 }
 
 .nav-list{
@@ -81,6 +80,7 @@ header{
     align-items: center;
     justify-content: space-between;
     margin: 0 -1rem;
+    transition: all 400ms ease;
 }
 
 .nav-list-mobile{
@@ -92,7 +92,7 @@ header{
     font-weight: 300;
     color: #fff;
     padding: 0 1rem;
-    opacity: 0.8;
+    opacity: .8;
     transition: opacity .4s;
 }
 
@@ -415,7 +415,8 @@ header{
     }
 
     .nav-list{
-        margin-top: 0;
+        margin-top: 0px;
+        transition: none; /* Nav Animation */
     }
 
     .nav-list-mobile{
@@ -505,8 +506,6 @@ header{
     /* Mobile Menu */
     header.active{
         /* height: 100%; */
-
-        /* IMPROVISE */
         flex-direction: column;
         position: fixed;
         top: 0;
@@ -517,10 +516,6 @@ header{
         justify-content: start;
         overflow: hidden;
     }
-
-    /* .nav-item{
-        background-color: red;
-    } */
 
     .nav-link-index{
         position: relative;
@@ -546,21 +541,20 @@ header{
         display: block;
         position: fixed;
         z-index: 1000;
-        /* top: 3.52941em; */
-        top: 90px;
+        top: 126px;
         right: 0;
         bottom: 0;
         left: 0;
         margin: 0;
         height: auto;
-        padding: 45px 40px 8px;
+        padding: 0 40px 8px; /*45px*/
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         visibility: hidden;
-        opacity: 0;
-        transition: opacity .3s;
+        opacity: 1;
+        /* transition: opacity .3s; */
     }
 
     .nav-list-larger li{
@@ -575,6 +569,12 @@ header{
         height: 100vh;
         opacity: 1;
         visibility: visible;
+        
+        height: auto;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* Bag Icon Animation */
@@ -615,9 +615,9 @@ header{
         border-bottom: none;
     }
 
-    /* .active .nav-list-larger .nav-item{
+    .active .nav-list-larger .nav-item{
         animation: fadeIn 1s ease-in;
-    } */
+    }
 
     @keyframes fadeIn{
         from {
@@ -673,12 +673,11 @@ header{
     /* Cancel Button */
 
     .mobile-search-container .cancel-btn {
-        display: flex; /*mejtexi hamar*/
-        align-items: center; /*mejtexi hamar*/
+        display: flex;
+        align-items: center;
         color: #2997ff;
         font-size: 17px;
         font-weight: 400;
-        /* background-color: red; */
         cursor: pointer;
         width: 0;
         overflow: hidden;
@@ -716,10 +715,10 @@ header{
 
     .mobile-search-container .quick-links {
         position: absolute;
-        top: 48px; /*10px*/
+        top: 58px; /*10px*/
         left: 0;
         right: 0;
-        padding: 0 32px;
+        padding: 0 40px;
         z-index: 1000;
         opacity: 0;
         pointer-events: none;
@@ -752,11 +751,9 @@ header{
         color: #2997ff;
     }
 
-    /* Nav Animation */
-
-    /* header .nav {
-        transition: all 400ms ease;
-    } */
+    .mobile-search-container .quick-links ul li:last-child a{
+        border-bottom: none;
+    }
 }
 
 /* For small devices *
