@@ -107,7 +107,8 @@ header{
     width: 1.6rem;
 }
 
-.nav-link-search{
+.nav-link-search,
+.link-search{
     background: url('https://Albert-off.github.io/pordz2index/assets/img/icons/search.svg') center no-repeat;
     display: block;
     height: 44px;
@@ -378,7 +379,8 @@ header{
 
 /* Hidden Items */
 
-.nav-list-mobile{
+.nav-list-mobile,
+.mobile-search-container{
     display: none;
 }
 
@@ -516,9 +518,9 @@ header{
         overflow: hidden;
     }
 
-    .nav-item{
+    /* .nav-item{
         background-color: red;
-    }
+    } */
 
     .nav-link-index{
         position: relative;
@@ -544,7 +546,8 @@ header{
         display: block;
         position: fixed;
         z-index: 1000;
-        top: 3.52941em;
+        /* top: 3.52941em; */
+        top: 90px;
         right: 0;
         bottom: 0;
         left: 0;
@@ -625,7 +628,135 @@ header{
         }
     }
 
+    /* Search Box */
     
+    .mobile-search-container input {
+        width: 100%;
+        padding: 12px 36px;
+        font-family: 'Inter', sans-serif;
+        font-size: 17px;
+        background: #1b1b1b;
+        border: 0;
+        color: #fff;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    .mobile-search-container {
+        position: relative;
+        padding: 0 16px;
+        margin-top: 10px;
+        border-bottom: 1px solid #616161;
+        display: flex;
+        padding-bottom: 16px;
+        opacity: 0;
+        transition: all 600ms ease;
+    }
+
+    header.active .mobile-search-container {
+        opacity: 1;
+    }
+
+    .mobile-search-container .link-search {
+        position: absolute;
+        left: 24px;
+        opacity: .5;
+        background-size: 15px;
+    }
+
+    /* Nav Move Up */
+
+    header .nav.move-up {
+        margin-top: -48px; /*-40px*/
+    }
+
+    /* Cancel Button */
+
+    .mobile-search-container .cancel-btn {
+        display: flex; /*mejtexi hamar*/
+        align-items: center; /*mejtexi hamar*/
+        color: #2997ff;
+        font-size: 17px;
+        font-weight: 400;
+        /* background-color: red; */
+        cursor: pointer;
+        width: 0;
+        overflow: hidden;
+        transition: all 400ms ease;
+    }
+
+    .mobile-search-container .search-bar.active + .cancel-btn {
+        padding: 0 16px;
+        width: 74px;
+    }
+
+    .mobile-search-container .search-bar {
+        flex: 1;
+    }
+
+    /* Desktop Nav Move Down */
+
+    nav .nav-list-larger.move-down li:nth-child(2) {
+        margin-top: 50px;
+    }
+
+    nav .nav-list-larger.move-down li {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Quick Links */
+
+    .mobile-search-container .search-bar.active ~ .quick-links {
+        top: 80px;
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 40ms;
+    }
+
+    .mobile-search-container .quick-links {
+        position: absolute;
+        top: 48px; /*10px*/
+        left: 0;
+        right: 0;
+        padding: 0 32px;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 400ms ease;
+    }
+
+    .mobile-search-container .quick-links ul {
+        list-style: none;
+    }
+
+    .mobile-search-container .quick-links h2 {
+        color: #86868b;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    .mobile-search-container .quick-links ul li a {
+        padding: 16px 0;
+        display: inline-block;
+        /* text-decoration: none; */
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        border-bottom: 1px solid #616161;
+        width: 100%;
+    }
+
+    .mobile-search-container .quick-links ul li a:hover {
+        color: #2997ff;
+    }
+
+    /* Nav Animation */
+
+    /* header .nav {
+        transition: all 400ms ease;
+    } */
 }
 
 /* For small devices *
